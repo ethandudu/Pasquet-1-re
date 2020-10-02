@@ -1,0 +1,380 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>Mod&eacute;lisation des syst&egrave;mes en langage sysML- Table of Contents</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 3.7.0.456">
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/silver-theme/jquery-ui-1.8.12.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/dynatree/chm/ui.dynatree.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/toc.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#tabs .ui-widget-header
+		{
+			background-color: #008080;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.dynatree.min.js"></script>
+	<script type="text/javascript" src="js/hndjsse.js"></script>
+	<script type="text/javascript">
+	
+		var bSearchDataLoaded = false;
+		var sHelpIdToActivate = '';
+	
+		$(document).ready(function()
+		{
+			var sAnchorName = '';
+			try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+			catch(err) { sAnchorName = ''; }
+			var nSelectedTab = 0;
+			if (sAnchorName == '_index') nSelectedTab = 1
+			else if (sAnchorName == '_search') nSelectedTab = 2;			
+			$("#tabs").tabs({
+				selected: nSelectedTab,
+				select: function(event, ui) { HideKwPopup(); }
+			});
+			
+			// Toc
+			if ($("#tab-toc").length) {
+				$("#tab-toc").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+							$("#tab-keywords").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+				// Expand all nodes if required
+				$("#tab-toc").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				// Select the active help id
+				if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+			}
+			
+			// Keywords
+			
+			if ($("#tab-keywords").length) {
+				$("#tab-keywords").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onClick: function(node, event){
+						HideKwPopup();
+						if (node.data && node.data.click)
+						{
+							var aRefList = null;
+							eval('aRefList=' + node.data.click);
+							if (ShowKwPopup(node.li, aRefList))
+							{
+								if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+									$("#tab-toc").dynatree("getTree").activateKey(null);
+								if(node.data.href && node.data.href != '#'){
+									window.open(node.data.href, node.data.target);
+								}
+							}
+						}
+					}
+				});
+				// Expand all nodes if required
+				}
+			
+			// Load search data
+			$.getScript("js/searchdata.js",	function() {
+				bSearchDataLoaded = true;
+			});
+		});
+		
+		$('body').click(function() {
+			HideKwPopup();
+		});
+		
+		function SelectTocItem(sHelpId)
+		{
+			if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+				$("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId).activateSilently();
+			}
+			else {
+				sHelpIdToActivate = sHelpId;
+			}
+		}
+		
+		function HideKwPopup()
+		{
+			if($("#popupMenu")) $("#popupMenu").remove();
+		}
+		
+		function ShowKwPopup(oSender, aLinks)
+		{
+			HideKwPopup();
+			if (!aLinks || !aLinks.length || aLinks.length == 0) return false
+			else if (aLinks.length == 1) return true
+			else
+			{
+				var oParentDiv = document.createElement("DIV");
+				oParentDiv.id = "popupMenu";
+				var oLink = null;
+				// Close button
+				oLink = document.createElement("SPAN");
+				oLink.className = "close-button";
+				oLink.innerHTML = "X";
+				oLink.href = "#";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+				// Items
+				for (var nCnt=0; nCnt<aLinks.length; nCnt++)
+				{
+					oLink = document.createElement("A");
+					oLink.innerHTML = aLinks[nCnt][0];
+					oLink.href = aLinks[nCnt][1];
+					oLink.target = "FrameMain";
+					oLink.onclick = HideKwPopup;
+					oParentDiv.appendChild(oLink);
+				}
+				document.body.appendChild(oParentDiv);
+				var pos = $(oSender).offset(); 
+				var height = $(oSender).height();
+				$(oParentDiv).css({
+					"left": (pos.left+20) + "px",
+					"top": (pos.top + height + 5) + "px"
+				});
+				$(oParentDiv).show();
+				return false;
+			}
+		}
+		
+		function PerformSearch()
+		{
+			sValue = $("#search_value").val();
+			$("#search_results").html('Searching...');
+			var oSearchEngine = new HndJsSe;
+			oSearchEngine.ParseInput(sValue);			
+			oSearchEngine.PerformSearch();
+			if (!oSearchEngine.aResults || !oSearchEngine.aResults.length)
+			{
+				$("#search_results").html('No results found.');
+			}
+			else
+			{
+				$("#search_results").html('<div id="search_results_content"></div>');
+				var oUl = $("#search_results_content").append("<ul id='lr'></ul>").find("ul");
+				for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++)
+				{
+					oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt]][1]) + "</a></li>");
+				}
+				// Tree
+				$("#search_results_content").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+							$("#search_results_content").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="tabs">
+		<ul>
+			<li><a href="#tab-toc">Contenu</a></li>
+			<li><a href="#tab-keywords">Index</a></li>
+			<li><a href="#tab-search">Recherche</a></li>
+			</ul>
+		<div id="tab-toc">
+			<ul id="toc" class="">
+
+				<li class="folder" id="Prsentation" data="">
+							<a
+							href="Prsentation.html"
+							target="FrameMain">
+								Pr&eacute;sentation</a>
+
+				<ul><li class="" id="Modlisationdessystmes" data="icon: '10.png'">
+							<a
+							href="Modlisationdessystmes.html"
+							target="FrameMain">
+								Mod&eacute;lisation des syst&egrave;mes</a>
+
+				</li><li class="folder" id="LelangageSysML" data="icon: '0.png'">
+							<a
+							href="LelangageSysML.html"
+							target="FrameMain">
+								Le langage SysML</a>
+
+				<ul><li class="" id="Descriptionfonctionnelle" data="">
+							<a
+							href="Descriptionfonctionnelle.html"
+							target="FrameMain">
+								Description fonctionnelle</a>
+
+				</li><li class="" id="Descriptionstructurelle" data="">
+							<a
+							href="Descriptionstructurelle.html"
+							target="FrameMain">
+								Description structurelle</a>
+
+				</li><li class="" id="Descriptioncomportementale" data="">
+							<a
+							href="Descriptioncomportementale.html"
+							target="FrameMain">
+								Description comportementale</a>
+
+				</li></ul></li></ul></li><li class="folder" id="DossiertechniquePEDALITE" data="">
+							<a
+							href="DossiertechniquePEDALITE.html"
+							target="FrameMain">
+								Dossier technique PEDALITE</a>
+
+				<ul><li class="" id="Miseensituation" data="icon: '10.png'">
+							<a
+							href="Miseensituation.html"
+							target="FrameMain">
+								Mise en situation</a>
+
+				</li><li class="" id="Principedefonctionnement" data="icon: '10.png'">
+							<a
+							href="Principedefonctionnement.html"
+							target="FrameMain">
+								Principe de fonctionnement</a>
+
+				</li><li class="" id="Constitutioninterne" data="icon: '10.png'">
+							<a
+							href="Constitutioninterne.html"
+							target="FrameMain">
+								Constitution interne</a>
+
+				</li></ul></li><li class="folder" id="Activitlve" data="">
+							<a
+							href="Activitlve.html"
+							target="FrameMain">
+								Activit&eacute; &eacute;l&egrave;ve</a>
+
+				<ul><li class="" id="DcouvertedeSysML" data="">
+							<a
+							href="DcouvertedeSysML.html"
+							target="FrameMain">
+								D&eacute;couverte de SysML</a>
+
+				</li><li class="folder" id="Modlefonctionnel" data="">
+							<a
+							href="Modlefonctionnel.html"
+							target="FrameMain">
+								Mod&egrave;le fonctionnel</a>
+
+				<ul><li class="" id="Lecontexte" data="icon: '8.png'">
+							<a
+							href="Lecontexte.html"
+							target="FrameMain">
+								Le contexte</a>
+
+				</li><li class="" id="Lescasdutilisation" data="icon: '8.png'">
+							<a
+							href="Lescasdutilisation.html"
+							target="FrameMain">
+								Les cas d'utilisation</a>
+
+				</li><li class="" id="Lesexigences" data="icon: '8.png'">
+							<a
+							href="Lesexigences.html"
+							target="FrameMain">
+								Les exigences</a>
+
+				</li></ul></li><li class="folder" id="Modlestructurel" data="">
+							<a
+							href="Modlestructurel.html"
+							target="FrameMain">
+								Mod&egrave;le structurel</a>
+
+				<ul><li class="" id="DiagrammededfinitiondeblockBDD" data="icon: '8.png'">
+							<a
+							href="DiagrammededfinitiondeblockBDD.html"
+							target="FrameMain">
+								Diagramme de d&eacute;finition de block (BDD)</a>
+
+				</li><li class="" id="DiagrammedeblockinterneIBD" data="icon: '8.png'">
+							<a
+							href="DiagrammedeblockinterneIBD.html"
+							target="FrameMain">
+								Diagramme de block interne (IBD)</a>
+
+				</li></ul></li><li class="folder" id="Modlecomportemental" data="">
+							<a
+							href="Modlecomportemental.html"
+							target="FrameMain">
+								Mod&egrave;le comportemental</a>
+
+				<ul><li class="" id="Diagrammedtat" data="icon: '8.png'">
+							<a
+							href="Diagrammedtat.html"
+							target="FrameMain">
+								Diagramme d'&eacute;tat</a>
+
+				</li></ul></li></ul></li><li class="" id="Sources" data="icon: '12.png'">
+							<a
+							href="Sources.html"
+							target="FrameMain">
+								Sources</a>
+
+				</li><li class="folder" id="Ressourcescomplmentaires" data="">
+							<a
+							href="Ressourcescomplmentaires.html"
+							target="FrameMain">
+								Ressources compl&eacute;mentaires</a>
+
+				<ul><li class="" id="Ressourcesdiverses" data="icon: '12.png'">
+							<a
+							href="Ressourcesdiverses.html"
+							target="FrameMain">
+								Ressources diverses</a>
+
+				</li><li class="" id="RessourcesMagicDraw" data="">
+							<a
+							href="RessourcesMagicDraw.html"
+							target="FrameMain">
+								Ressources Magic Draw</a>
+
+				</li></ul></li></ul>
+		</div>
+		
+		<div id="tab-keywords">
+			<ul id="keywords">
+
+				</ul>
+		</div>
+		
+		<div id="tab-search">
+			<form onsubmit="PerformSearch(); return false;">
+				<label for="search_value">Recherche:</label>
+				<input id="search_value" name="search_value"></input>
+				<input type="submit" value="Recherche"/>
+			</form>
+			<div id="search_results"></div>
+		</div>
+		
+		</div>
+    
+</body>
+
+</html>
+

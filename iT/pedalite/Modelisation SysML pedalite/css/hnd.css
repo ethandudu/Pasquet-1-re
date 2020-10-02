@@ -1,0 +1,604 @@
+﻿/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts6, span.rvts6
+{
+ color: #000080;
+ text-decoration: underline;
+}
+span.rvts7
+{
+ color: #a0a0a0;
+}
+span.rvts8
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #696969;
+}
+span.rvts9
+{
+ font-weight: bold;
+ color: #a0a0a0;
+}
+span.rvts10
+{
+ font-style: italic;
+ color: #a0a0a0;
+}
+span.rvts11
+{
+ font-size: 14pt;
+ color: #ff0000;
+}
+span.rvts12
+{
+ font-size: 14pt;
+ font-family: 'Roman';
+}
+span.rvts13
+{
+ font-size: 14pt;
+ font-family: 'Calibri';
+ font-weight: bold;
+}
+span.rvts14
+{
+ font-size: 20pt;
+ font-family: 'Calibri';
+ font-weight: bold;
+}
+span.rvts15
+{
+ font-size: 12pt;
+}
+span.rvts16
+{
+ font-size: 28pt;
+ font-family: 'Calibri';
+ font-weight: bold;
+ color: #ffffff;
+}
+span.rvts17
+{
+ font-size: 14pt;
+}
+a.rvts18, span.rvts18
+{
+ font-size: 8pt;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts18:hover { color: #0000ff; }
+span.rvts19 /* Font Style */
+{
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts20, span.rvts20 /* Font Style */
+{
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+span.rvts21
+{
+ font-size: 12pt;
+ font-family: 'Calibri';
+}
+span.rvts22
+{
+ font-size: 14pt;
+ font-family: 'Calibri';
+}
+span.rvts23
+{
+ font-size: 12pt;
+}
+span.rvts24
+{
+ font-size: 12pt;
+ font-weight: bold;
+}
+span.rvts25
+{
+ font-size: 14pt;
+ font-weight: bold;
+}
+span.rvts26
+{
+ font-size: 26pt;
+ font-weight: bold;
+}
+span.rvts27
+{
+ font-size: 12pt;
+ color: #000000;
+}
+span.rvts28
+{
+ font-family: 'Calibri';
+}
+span.rvts29
+{
+ font-weight: bold;
+}
+span.rvts30
+{
+ font-size: 14pt;
+ font-family: 'Calibri';
+ font-style: italic;
+}
+span.rvts31
+{
+ font-family: 'Calibri';
+ color: #c00000;
+}
+span.rvts32
+{
+ font-size: 14pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000000;
+}
+span.rvts33
+{
+ font-size: 14pt;
+ color: #000000;
+}
+span.rvts34
+{
+ font-size: 26pt;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts35
+{
+ font-size: 14pt;
+ font-family: 'Calibri';
+}
+span.rvts36
+{
+ font-size: 14pt;
+}
+span.rvts37
+{
+ font-size: 12pt;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts38
+{
+ font-family: 'Roman';
+}
+span.rvts39
+{
+ font-size: 26pt;
+ font-weight: bold;
+}
+span.rvts40
+{
+}
+span.rvts41
+{
+ font-size: 12pt;
+ font-family: 'Calibri';
+ font-weight: bold;
+}
+span.rvts42 /* Font Style */
+{
+}
+span.rvts43
+{
+ font-size: 12pt;
+}
+span.rvts44
+{
+ font-size: 12pt;
+ font-weight: bold;
+}
+span.rvts45
+{
+ font-size: 14pt;
+ font-weight: bold;
+ text-decoration: underline;
+}
+span.rvts46
+{
+ font-size: 12pt;
+ font-style: italic;
+}
+span.rvts47
+{
+ font-size: 14pt;
+ color: #0000ff;
+}
+a.rvts48, span.rvts48
+{
+ font-size: 14pt;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts48:hover { color: #0000ff; }
+a.rvts49, span.rvts49
+{
+ font-size: 14pt;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts49:hover { color: #0000ff; }
+span.rvts50
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000000;
+}
+span.rvts51
+{
+ font-size: 12pt;
+ font-style: italic;
+ text-decoration: underline;
+}
+span.rvts52
+{
+ font-size: 16pt;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts53
+{
+ font-size: 12pt;
+ color: #c00000;
+}
+span.rvts54
+{
+ font-size: 12pt;
+ color: ;
+}
+span.rvts55
+{
+ font-size: 16pt;
+ font-weight: bold;
+}
+span.rvts56
+{
+ font-size: 12pt;
+ font-style: italic;
+ color: #000000;
+}
+span.rvts57
+{
+ font-size: 12pt;
+ font-style: italic;
+}
+a.rvts58, span.rvts58
+{
+ font-size: 12pt;
+ font-weight: bold;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts58:hover { color: #0000ff; }
+a.rvts59, span.rvts59
+{
+ font-size: 12pt;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts59:hover { color: #0000ff; }
+a.rvts60, span.rvts60
+{
+ font-size: 12pt;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts60:hover { color: #0000ff; }
+span.rvts61
+{
+ font-size: 12pt;
+ font-family: 'Courier New', 'Courier', monospace;
+ color: #000000;
+}
+a.rvts62, span.rvts62
+{
+ font-size: 12pt;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts62:hover { color: #0000ff; }
+span.rvts63
+{
+ font-size: 12pt;
+ font-family: 'Courier New', 'Courier', monospace;
+}
+a.rvts64, span.rvts64
+{
+ font-size: 14pt;
+ font-family: 'Calibri';
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts64:hover { color: #0000ff; }
+span.rvts65
+{
+ font-size: 12pt;
+ color: #ffffff;
+}
+span.rvts66
+{
+ font-size: 22pt;
+ font-family: 'Arial Rounded MT Bold';
+ font-weight: bold;
+ color: #ffffff;
+}
+span.rvts67
+{
+ font-size: 14pt;
+ font-family: 'Arial Rounded MT Bold';
+ color: #000000;
+}
+span.rvts68
+{
+ font-size: 14pt;
+ font-family: 'arial rounded mt bold';
+ color: #000000;
+}
+span.rvts69
+{
+ font-size: 14pt;
+ font-family: 'Arial Rounded MT Bold';
+ font-weight: bold;
+ color: #000000;
+}
+a.rvts70, span.rvts70
+{
+ font-size: 14pt;
+ font-family: 'Arial Rounded MT Bold';
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts70:hover { color: #0000ff; }
+a.rvts71, span.rvts71
+{
+ font-size: 14pt;
+ font-family: 'Arial Rounded MT Bold';
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts71:hover { color: #0000ff; }
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+ text-align: center;
+ background: #666699;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-left: none;
+ padding: 2px 0px 2px 0px;
+ margin: 7px 0px 7px 0px;
+}
+.rvps4
+{
+ margin: 0px 68px 0px 0px;
+}
+.rvps5
+{
+ text-align: center;
+ margin: 0px 68px 0px 0px;
+}
+.rvps6
+{
+ margin: 0px 23px 0px 0px;
+}
+.rvps7
+{
+ margin: 0px 78px 0px 0px;
+}
+.rvps8
+{
+ margin: 0px 54px 0px 0px;
+}
+.rvps9
+{
+ text-align: center;
+ margin: 0px 54px 0px 0px;
+}
+.rvps10
+{
+ margin: 0px 104px 0px 0px;
+}
+.rvps11
+{
+ text-align: justify;
+}
+.rvps12
+{
+ text-align: justify;
+ margin: 0px 54px 0px 0px;
+}
+.rvps13
+{
+ margin: 0px 54px 0px 24px;
+}
+.rvps14
+{
+ text-indent: -36px;
+ margin: 0px 0px 0px 36px;
+}
+.rvps15
+{
+ text-align: center;
+ margin: 0px 126px 0px 0px;
+}
+.rvps16
+{
+ margin: 0px 126px 0px 0px;
+}
+.rvps17
+{
+ margin: 0px 389px 0px 0px;
+}
+.rvps18
+{
+ text-indent: -165px;
+ margin: 0px 389px 0px 165px;
+}
+.rvps19
+{
+ margin: 0px 4px 0px 0px;
+}
+.rvps20
+{
+ text-align: justify;
+ margin: 0px 381px 0px 0px;
+}
+.rvps21
+{
+ text-align: justify;
+ margin: 0px 81px 0px 0px;
+}
+.rvps22
+{
+ margin: 0px 0px 0px 24px;
+}
+.rvps23
+{
+ margin: 0px 0px 0px 48px;
+}
+.rvps24
+{
+ margin: 0px 104px 0px 24px;
+}
+.rvps25
+{
+ text-align: justify;
+ margin: 0px 0px 0px 24px;
+}
+.rvps26
+{
+ margin: 0px 0px 0px 100px;
+}
+.rvps27
+{
+ text-align: justify;
+ margin: 0px 389px 0px 0px;
+}
+.rvps28
+{
+ margin: 0px 0px 0px 72px;
+}
+.rvps29
+{
+ text-align: justify;
+ margin: 0px 23px 0px 0px;
+}
+.rvps30
+{
+ text-align: justify;
+ margin: 0px 234px 0px 40px;
+}
+.rvps31
+{
+ margin: 0px 189px 0px 0px;
+}
+.rvps32
+{
+ text-align: justify;
+ margin: 0px 189px 0px 95px;
+}
+.rvps33
+{
+ text-align: justify;
+ margin: 0px 104px 0px 95px;
+}
+.rvps34 /* Paragraph Style */
+{
+}
+.rvps35
+{
+ text-indent: 47px;
+}
+.rvps36
+{
+ text-indent: -24px;
+ margin: 0px 23px 0px 24px;
+}
+.rvps37
+{
+ text-indent: 48px;
+}
+.rvps38
+{
+ line-height: 1.15;
+ margin: 0px 0px 13px 0px;
+}
+.rvps39
+{
+ margin: 0px 0px 0px 47px;
+}
+.rvps40
+{
+ background: #ffffff;
+}
+.rvps41
+{
+ background: #ffffff;
+}
+.rvps42
+{
+ text-align: center;
+ background: #ffffff;
+}
